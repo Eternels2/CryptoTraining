@@ -1,0 +1,60 @@
+<div class="container-show">
+    <div class="back-button-coin-show d-flex">
+        <%= link_to cryptos_path do %>
+          <div class="d-flex align-items-center my-4">
+            <i class="fa-solid fa-chevron-left mx-2"></i>
+            <img class="rounded-circle mx-2"src="<%= @crypto.image_url %>" height="50px">
+            <h5 class="m-0 mx-2"> <%= @crypto.name %></h5>
+            <input name="crypto" id="crypto" value="<%=@crypto.abbreviation%>" hidden>
+              <%# <i class="fa-solid fa-heart watchlist-icon mx-2" style="font-size: 24px; color: red;"></i> %>
+          </div>
+        <% end %>
+      </div>
+    <%= simple_form_for [ @crypto, @holding ] do |c| %>
+      <%= c.error_notification %>
+      <div id='modal-form' data-controller="buy">
+        <h2><%= get_price(@crypto.coingecko_id) %>$</h2>
+        <input data-buy-target="price" value="<%= get_price(@crypto.coingecko_id) %>" hidden>
+          <div id="watchlist-button">
+          <% if @crypto.watchlists.where(user: current_user).count > 0 %>
+            <%= link_to watchlist_path(@crypto.watchlists.first), method: :delete do %>
+            <i class="fa-solid fa-heart watchlist-icon" style="font-size: 24px; color: red; border-right-width: 50px;"></i>
+            <% end %>
+          <% else %>
+            <%= simple_form_for [ @crypto, @watchlist ] do |f| %>
+            <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+              <button name="commit" type="submit" style="border: none;background: none; padding: 0" value="Add Watchlist">
+              <i class="fa-solid fa-heart watchlist-icon" style="font-size: 24px; color: red; border-right-width: 50px;"></i>
+              </button>
+            <% end %>
+          <% end %>
+              </button>
+              <canvas id="myChart" width="200" height="200"></canvas>
+
+              <p style="text-align:center; margin-top:20px;"><%= @crypto.name %> balance: <%= @holdings.where(crypto_id: @crypto.id).first.nil? ? "0.0" : @holdings.where(crypto_id: @crypto.id).first.quantity.round(6) %></p>
+
+              <div class="form-buy">
+                <div class="quantity-crypto-input" style="width: 150px" data-action="keyup->buy#equal">
+                  <%= c.input :quantity, :label => "Quantity", input_html: {data: {buy_target: "quantity"}}%>
+                </div>
+                  <i class=" arrow fa-solid fa-arrow-right-arrow-left"></i>
+                <div class="quantity-dollar-input" style="width: 150px" data-action="keyup->buy#add">
+                  <div class="mb-3 float optional holding_quantity">
+                    <label class="form-label float optional" for="price">Price</label>
+                    <input class="form-control numeric float optional" type="number" name="dollar" data-buy-target="dollars" id="price">
+                  </div>
+                </div>
+              </div>
+
+              <div class="text-center">
+                <%= c.button :submit, 'Buy', id:"buy"%>
+                <%= c.button :submit, 'Sell', id:"sell"%>
+              </div>
+              <div>
+                <h2 style="color: red;"><%=@error%></h2>
+              </div>
+      </div>
+      </div>
+    <% end %>
+    </div>
+</div>

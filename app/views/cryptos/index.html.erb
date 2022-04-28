@@ -1,0 +1,80 @@
+<% if current_user.amount.nil? %>
+<% current_user.amount = 10000 %>
+<% current_user.save %>
+<% end %>
+
+<% if @cryptos[0].price != get_price(@cryptos[0].coingecko_id) %>
+  <% @cryptos.each do |crypto| %>
+    <% crypto.price = get_price(crypto.coingecko_id) %>
+    <% crypto.save %>
+  <% end %>
+<% end %>
+
+
+
+
+  <div class="card beginner-card" style="width: 18rem;">
+    <div class="card-body">
+      <h5 class="card-title">Beginner's guide</h5>
+      <p class="card-text" style="font-weight: bold">Want to learn some basics?</p>
+        <div class="btn-guide1">
+                <%= link_to 'Go to lessons!', pages_path, class:"btn-guide" %>
+        </div>
+    </div>
+  </div>
+
+
+<div class="container-crypto">
+  <div style="display: flex; justify-content: center; color: white;">
+    <h2>Most active</h2>
+  </div>
+  <div class="table-container">
+    <table cellspacing="0" class="table-crypto">
+        <tbody>
+            <% @cryptos.each do |crypto| %>
+                <tr class="tr-tr">
+                  <td style="text-align: left;" class="td-crypto">
+                    <div class="crypto-link-container">
+                      <a href="/cryptos/<%=crypto.id%>">
+                          <img src="<%= crypto.image_url %>" width="30" height="30" />
+                          <div class="crypto-container">
+                            <h5 style="margin-left: 10px;"><%= crypto.name %><br><span style="font-size: 10px; color: rgba(255,255,255, 0.7);"><%= crypto.abbreviation  %></span></h5>
+                          </div>
+                       </a>
+                    </div>
+                  </td>
+                  <td class="td-crypto" style="text-align: left; border: none ">
+                    <% case custom_fibonacci(crypto.coingecko_id, "1") %>
+                      <% when "Sell" %>
+                        <img src="<%= crypto.chart_url %>" alt="<%= crypto.name%>-1d-price-graph" style="filter: hue-rotate(85deg) saturate(80%) brightness(0.85);" width="70" height="70">
+                      <% when "Wait" %>
+                        <img src="<%= crypto.chart_url %>" alt="<%= crypto.name%>-1d-price-graph" style="filter: hue-rotate(85deg) saturate(80%) brightness(0.85);" width="70" height="70">
+                      <% when "Buy" %>
+                        <img src="<%= crypto.chart_url %>" alt="<%= crypto.name%>-1d-price-graph" style="filter: hue-rotate(300deg) saturate(210%) brightness(0.7) contrast(170%);" width="70" height="70">
+                    <% end %>
+                  </td>
+                    <td class="td-crypto" style="text-align: left; border: none">
+                      <h5>$<%= crypto.price %></h5>
+                    </td>
+                      <td class="td-crypto" style="text-align: left; border: none">
+                          <% case custom_fibonacci(crypto.coingecko_id, "1") %>
+                          <% when "Sell" %>
+                          <div class="crypto-indicator-sell">
+                            SELL
+                          </div>
+                          <% when "Wait" %>
+                          <div class="crypto-indicator-wait">
+                            WAIT
+                          </div>
+                          <% when "Buy" %>
+                          <div class="crypto-indicator-buy">
+                            BUY
+                          </div>
+                          <% end %>
+                      </td>
+                </tr>
+            <% end %>
+        </tbody>
+  </table>
+  </div>
+</div>

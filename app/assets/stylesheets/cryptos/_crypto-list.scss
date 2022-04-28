@@ -1,0 +1,17 @@
+table {
+  color: white;
+}
+
+.crypto-container {
+  flex-direction: row;
+  -moz-box-align: center;
+  align-items: center;
+}
+
+.crypto-link-container {
+  box-sizing: border-box;
+  margin: 0px;
+  display: flex;
+  -moz-box-align: center;
+  align-items: center;
+}

@@ -1,0 +1,42 @@
+<div class="container-watchlist" >
+  <div class="market-title">
+      <h1>Watchlist</h1>
+  </div>
+
+    <div class="around-table-market">
+      <table class="table-market">
+        <thead>
+          <tr>
+            <th style="display: flex;justify-content: space-around;padding-right: 60px;">Name</th>
+            <th>Price</th>
+            <th style="padding-left: 50px;">Chart</th>
+          </tr>
+        </thead>
+      </table>
+   </div>
+   <table cellspacing="0">
+      <tbody data-controller="watchlistindex">
+        <tr class="tr-tr">
+          <% @watchlists.each do |watchlist_coin| %>
+              <td class="td-watchlist">
+                <%= link_to watchlist_path(watchlist_coin), method: :delete do %>
+                  <i class="fa-solid fa-heart" style="font-size:25px; color: red;"></i>
+                <% end %>
+              </td>
+              <td class="td-watchlist">
+                <img src="<%= watchlist_coin.crypto.image_url%>" class="avatar-small mr-2" height="25px" style="padding-left: 10px;">
+              </td>
+              <td class="td-watchlist">
+                <h5 style="padding-top: 7px; color: white;"><%= watchlist_coin.crypto.name %></h5>
+              </td>
+              <td class="td-watchlist">
+                <h5 style="padding-top: 7px; color: white;"><%= watchlist_coin.crypto.price %></h5>
+              </td>
+              <td class="td-watchlist">
+                <img src="<%= watchlist_coin.crypto.chart_url%>" style="height:25px">
+              </td>
+          <% end %>
+        </tr>
+      </tbody>
+    </table>
+</div>

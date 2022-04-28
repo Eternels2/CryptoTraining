@@ -1,0 +1,262 @@
+// Specific CSS for your home-page
+//logo img//
+.logo-home img {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 112.96px;
+  height: 92px;
+  margin: 0 auto;
+  margin-top: 90px;
+}
+
+
+
+//sign-in//
+#sign-in h2 {
+  color: aliceblue;
+  font-weight: bolder;
+  margin: 0 auto;
+  width: 100px;
+  font-size: 20px;
+  margin-top: 10px;
+  font-family: 'Poppins', sans-serif;
+}
+
+//simple-form-for//
+
+.form-sign-in {
+  width: 300px;
+  margin: 0 auto;
+  color: aliceblue;
+}
+
+#user_email {
+  border-radius: 8px;
+}
+
+#user_password {
+  border-radius: 8px;
+}
+
+//form-actions the action that send a unknown to sig Up if not registered//@at-root
+
+.btn {
+  color: rgb(255, 255, 255);
+  background-color: #0D6EFD;
+  border-radius: 12px;
+}
+
+a {
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+}
+
+// ---------------------------Home-Page---------------------------------
+
+// .container-home-page{
+//   width: 370px;
+//   margin: 0 auto;
+//   margin-top: 20px;
+// }
+
+// .top-card {
+//   border-radius: 16px;
+//   background: rgb(0,11,255);
+//   // background: linear-gradient(180deg, rgba(39,77,251,1) 29%, rgba(39,77,251,0) 98%);
+//   color: aliceblue;
+//   height: 232px;
+//   width: 370px;
+//   padding: 10px;
+// }
+.swiper{
+  margin: 20px
+}
+
+.carousel-card {
+  border-radius: 16px;
+  // margin: 18px;
+  background: rgb(0,11,255);
+  background: linear-gradient(180deg, rgba(39,77,251,1) 29%, rgba(39,77,251,0) 98%);
+  color: aliceblue;
+  box-shadow: rgba(0, 0, 0, 0.05) 0px 1px 2px 0px;
+  padding: 12px;
+  height: 300px;
+}
+
+.swiper-button-prev{
+  width: 20px;
+  height: 20px;
+}
+.swiper-button-next{
+  width: 20px;
+  height: 20px;
+}
+
+.logo-card1 img {
+  width: 111px;
+  height: 111px;
+}
+
+.logo-card2 img {
+  width: 111px;
+  height: 111px;
+}
+
+.logo-card3 img {
+  width: 111px;
+  height: 111px;
+}
+
+.first-p p {
+  margin-top: 20px;
+  margin-bottom: 50px;
+}
+
+h1 {
+  margin-top: 20px;
+}
+
+.logo-home-candle img {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100px;
+  height: 100px;
+  margin: 0 auto;
+  margin-top: 20px;
+}
+
+
+
+
+//banner defilante
+
+.container-banner-defilante{
+  display: flex;
+}
+
+.container-banner-defilante * {
+  font-family: 'Sora', sans-serif !important;
+}
+
+.crypto-banner-container {
+  display: flex;
+  justify-content: space-around;
+  box-sizing: border-box;
+  margin: 0px;
+  color: white;
+}
+
+.crypto-banner{
+  display: block;
+  // background-color: rgb(45, 43, 50);
+  box-shadow: rgba(0, 0, 0, 0.05) 0px 1px 2px 0px;
+  border-radius: 8px;
+  margin: 12px;
+  // border: solid;
+}
+
+.crypto-price{
+  align-items: end;
+  color: white;
+  font-size: x-large;
+  align-items: center;
+}
+
+.fibo-indicator{
+  text-align: center;
+  padding: 8px;
+  padding: 8px;
+  border-radius: 8px;
+
+}
+
+
+
+.crypto-banner-chart{
+  display:flex;
+  justify-content: center;
+  width: 300px;
+}
+
+
+.marquee-container {
+  position: relative;
+  display: flex;
+  overflow: hidden;
+  align-items: center;
+  padding: 0;
+  margin-top: 24px;
+  margin-bottom: 68px;
+  // table-layout: fixed;
+  // transform: rotate(-90deg);
+  width: 100vw;
+}
+
+.marquee {
+  padding: 0;
+  margin: 0;
+  font-size: 60px;
+  animation: marquee 30s linear infinite;
+  white-space: nowrap;
+}
+
+.marquee:after {
+  content: attr(data-content);
+  white-space: nowrap;
+}
+
+@keyframes marquee {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+  100% {
+    transform: translate3d(-3244px, 0, 0); /* The image width */
+  }
+}
+
+.crypto-indicator-sell-home {
+  color: white;
+  background: rgb(210, 73, 73);
+  padding: 6px, 8px;
+  border-radius: 10px;
+  width:128px;
+  font-size: large;
+  align-self: center;
+}
+
+.crypto-indicator-wait-home {
+  color: black;
+  background: rgba(255, 255, 255, 0.283);
+  padding: 6px, 8px;
+  border-radius: 10px;
+  width: 128px;
+  font-size: large;
+  align-self: center;
+}
+
+.crypto-indicator-buy-home {
+  color: white;
+  background: rgb(77, 172, 77);
+  padding: 6px, 10px;
+  border-radius: 8px;
+  width: 128px;
+  font-size: large;
+  align-content: center;
+}
+
+.indicator-fib{
+  align-items: center;
+}
+
+.fibo-indicator {
+  display:flex;
+  justify-content: center;
+  p {
+    margin: 0;
+  }
+}

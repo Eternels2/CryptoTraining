@@ -1,0 +1,92 @@
+* {
+  font-family: 'Nunito', sans-serif;
+}
+
+.container-show {
+  width: 360px;
+  margin: 0 auto;
+  color: rgb(255, 255, 255);
+  margin-top: 15px ;
+}
+
+
+
+.title-exchange {
+  margin-top: 150px;
+  p{
+    font-size: 17px;
+  }
+
+}
+
+// .btn-back {
+//   background-color: #0D6EFD;
+//   border-radius: 16px;
+//   color: aliceblue;
+//   padding: 6px 12px;
+//   width: 100px;
+//   margin: 0 auto;
+//   margin-top: 50px;
+
+// }
+
+.btn-link {
+  text-decoration: none;
+}
+
+.fa-heart:before {
+  content: "\f004";
+  color: #FF5733;
+}
+
+
+
+#sell {
+  background-color: $danger;
+  width: 48%;
+}
+
+#buy {
+  background-color: $success;
+  width: 48%;
+  margin-right: 2%;
+}
+
+
+// .fa-chevron-left:before {
+//   content: "\f053";
+//   display: flex;
+//   font-size: x-large;
+//   position: absolute;
+//   left: 5.31%;
+//   right: 92.03%;
+//   top: 8.48%;
+//   bottom: 89.4%;
+// }
+
+// .rounded-circle {
+//   position: absolute;
+//   width: 128px;
+//   height: 45px;
+//   left: 6px;
+//   top: 61px;
+
+// }
+
+#crypto-name {
+  position: absolute;
+width: 62px;
+height: 27px;
+left: 91px;
+top: 72px;
+}
+
+.form-buy{
+  display: flex;
+  justify-content: space-around;
+  margin-top: 58px;
+}
+
+.arrow{
+  align-self: center;
+}

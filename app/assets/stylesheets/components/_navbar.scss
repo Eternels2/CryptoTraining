@@ -1,0 +1,61 @@
+$circle-radius: 40px;
+
+.p-fixed {
+  position: fixed;
+}
+
+.navbar-lewagon {
+  justify-content: space-between;
+  background: #0c0c32;
+  // overflow: hidden;
+  bottom: 0;
+  width: 100%;
+  border-top: 1px solid #ffffff;
+  height: 60px;
+  z-index: 999;
+  padding-left: 15px;
+}
+
+.navbar-lewagon .navbar-collapse {
+  flex-grow: 0;
+}
+
+.navbar-lewagon .navbar-brand img {
+  width: 55px;
+  margin-top: 10px;
+  margin-left: 20px;
+}
+
+#circle {
+  background: #0c0c32;
+  border-radius: 50%;
+  width: calc(#{$circle-radius} * 2);
+  height: calc(#{$circle-radius} * 2);
+  position: absolute;
+  top: -26px;
+  left: calc(50% - #{$circle-radius});
+  border-top-style: outset;
+}
+
+
+.icons i {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: grey;
+  justify-items: center;
+  height: 40px;
+  width: 40px;
+  margin-right: 3em;
+  align-items: center;
+
+}
+
+.left-icons  {
+display: flex;
+}
+
+.right-icons {
+  display: flex;
+  align-items: center;
+}

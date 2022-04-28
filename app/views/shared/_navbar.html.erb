@@ -1,0 +1,29 @@
+<div class="navbar navbar-expand-sm navbar-light navbar-lewagon p-fixed">
+  <div class="icons d-flex align-items-center justify-content-between w-100">
+    <div class="left-icons d-flex align-items-center justify-content-between">
+      <div>
+        <i><%= link_to '', pages_path, class:"fas fa-book-open"%></i>
+      </div>
+      <div>
+         <i><%= link_to '', cryptos_path, class:"fas fa-chart-bar"%></i>
+      </div>
+    </div>
+    <div class="right-icons d-flex align-items-center justify-content-between">
+        <div>
+          <i style="margin-left: 70px;"><%= link_to '', watchlists_path, class:"fas fa-star"%></i>
+        </div>
+        <div>
+         <i><%= link_to '', dashboard_path, class:"fa-solid fa-wallet"%></i>
+        </div>
+    </div>
+  </div>
+
+
+  <div id="circle">
+    <div class="container-fluid">
+      <%= link_to root_path, class: "navbar-brand" do %>
+        <%= image_tag("logocandle.png") %>
+      <% end %>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,86 @@
+.beginner-card{
+  background-color: #4464F6;
+  border-radius: 16px;
+  color: white;
+  margin-top: 16px;
+  margin-left: 16px;
+  margin-bottom: 18px;
+}
+
+.btn-guide{
+  background-color: white;
+  color: #4464F6;
+  font-weight: bolder;
+  border-radius: 8px;
+  width: 130px;
+  padding: 4px;
+}
+
+.container-crypto {
+  width: 95%;
+  margin:0 auto;
+}
+
+.tr-tr {
+  text-align:center;
+  padding:1px;
+}
+
+.table-crypto *{
+  font-family: 'Sora', sans-serif !important;
+  border-collapse: separate;
+  border-spacing: 0 0.3rem;
+}
+
+.td-crypto:first-child{
+  border-radius: 16px 0 0 16px;
+  // border:1px solid #4464F6
+  padding-left: 6px;
+}
+
+.crypto-indicator-sell {
+  color: white;
+  background: rgb(210, 73, 73);
+  padding: 3px 10px;
+  border-radius: 10px;
+}
+
+.crypto-indicator-wait {
+  color: black;
+  background: rgba(255, 255, 255, 0.283);
+  padding: 3px 10px;
+  border-radius: 10px;
+}
+
+.crypto-indicator-buy {
+  color: white;
+  background: rgb(77, 172, 77);
+  padding: 3px 10px;
+  border-radius: 10px;
+}
+
+
+// .td-crypto {
+//   border: 1px solid #4464F6;
+// }
+
+// td {
+//   border: 1px solid #4464F6;
+// }
+td:last-child{
+    border-radius: 0 16px 16px 0;
+    // border-left: 1px solid #4464F6;
+    padding-right: 6px;
+}
+.table-container {
+  padding-bottom: 9vh;
+}
+
+table, tr, td {
+  border: 0px solid;
+  border-color: transparent;
+}
+
+.sell-crypto {
+  font-size: 18px;
+}

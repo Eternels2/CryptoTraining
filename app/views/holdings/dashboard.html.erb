@@ -1,0 +1,52 @@
+<% if current_user.amount.nil? %>
+<% current_user.amount = 10000 %>
+<% current_user.save %>
+<% end %>
+
+<div class="balance-container">
+  <h5>Total Balance</h5>
+  <%total_balance = 0%>
+  <% current_user.holdings.each do |holding| %>
+    <% total_balance += get_price_by_amount(holding.crypto.coingecko_id, holding.quantity) %>
+  <%end%>
+  <p>$<%= (current_user.amount + total_balance).round(2) %></p>
+  <div class="separator"></div>
+  <h5>Balance</h5>
+  <p>$<%= current_user.amount.round(4) %></p>
+  <div id="pie-container" fill="#4464F6">
+  </div>
+</div>
+
+<div class="portfolio-container" data-controller="dashboard">
+  <h5 style="padding-left: 0px;">My Portfolio</h5>
+  <table>
+    <tbody>
+    <% current_user.holdings.each do |holding| %>
+    <tr>
+      <td style="text-align: left;">
+        <div class="crypto-link-container">
+          <a href="cryptos/<%=holding.crypto.id%>">
+            <img src="<%= holding.crypto.image_url %>" width="30" height="30" />
+            <div class="crypto-container">
+              <h5 style="margin-left: 10px;"><%= holding.crypto.abbreviation %><br><span style="font-size: 10px; color: rgba(255,255,255, 0.7);"><%= holding.crypto.name  %></span></h5>
+            </div>
+          </a>
+        </div>
+      </td>
+      <td>
+        <% if ((holding.purchased_price - get_price(holding.crypto.coingecko_id)) / 100).round(2) > 0.00 %>
+          <h5 style="color: rgb(77, 172, 77);"><%= ((holding.purchased_price - get_price(holding.crypto.coingecko_id)) / 100).round(2)%>%</h5>
+        <% elsif ((holding.purchased_price - get_price(holding.crypto.coingecko_id)) / 100).round(2) == 0.00%>
+        <h5><%= ((holding.purchased_price - get_price(holding.crypto.coingecko_id)) / 100).round(2)%>%</h5>
+        <% else %>
+          <h5 style="color: rgb(210, 73, 73)"><%= ((holding.purchased_price - get_price(holding.crypto.coingecko_id)) / 100).round(2)%>%</h5>
+        <% end %>
+      </td>
+      <td>
+        <h5><%= holding.quantity.round(5)%><br><span style="font-size: 13px;">$<%= get_price_by_amount(holding.crypto.coingecko_id, holding.quantity)%></span></h5>
+      </td>
+    </tr>
+    <% end %>
+    </tbody>
+  </table>
+</div>

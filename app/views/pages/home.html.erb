@@ -1,0 +1,116 @@
+
+<div class="logo-home-candle" >
+  <%= link_to "#" do %>
+        <%= image_tag("logocandle.png") %>
+      <% end %>
+</div>
+
+<h1 class="text-center" style="font-weight: larger; color: aliceblue; margin-top: 18px;">$ell High ₿uy Low</h1>
+
+<div class="marquee-container infiniteslide">
+
+
+  <div class="marquee">
+    <div class="container-banner-defilante">
+        <% @cryptos.to_a.push(@cryptos.first(3)).flatten.each do |crypto| %>
+            <div class="crypto-banner">
+              <div class="crypto-banner-container">
+                  <a class="crypto-name-abb" href="cryptos/1">
+                    <img src="<%= crypto.image_url %>" width="30" height="30" />
+                      <h5 style="margin-left: 10px;"><%= crypto.name %><br><span><%= crypto.abbreviation  %></span></h5>
+                  </a>
+                <div class="crypto-price">
+                  $<%= crypto.price %>
+                </div>
+              </div>
+
+              <div class="fibo-indicator">
+                <% case custom_fibonacci(crypto.coingecko_id, "1") %>
+                <% when "Sell" %>
+                  <div class="crypto-indicator-sell-home text-center">
+                    <p class="indicator-fib text-center">SELL</p>
+                  </div>
+                <% when "Wait" %>
+                  <div class="crypto-indicator-wait-home">
+                    <p class="indicator-fib text-center">WAIT</p>
+                  </div>
+                <% when "Buy" %>
+                  <div class="crypto-indicator-buy-home">
+                    <p class="indicator-fib">BUY</p>
+                  </div>
+                <% end %>
+              </div>
+              <div class="crypto-banner-chart">
+                <img src="<%= crypto.chart_url%>" alt="<%= crypto.name%>-1d-price-graph" style="filter: hue-rotate(85deg) saturate(80%) brightness(0.85);" width="240" height="70">
+              </div>
+            </div>
+        <% end %>$
+
+    </div>
+  </div>
+</div>
+
+
+
+
+<div class="swiper" data-controller="swiper">
+  <div class="swiper-wrapper">
+    <div class="swiper-slide">
+    <div class="carousel-card">
+          <div class="d-flex justify-content-center">
+            <h1>Lessons</h1>
+          </div>
+          <div class="logo-card1" >
+            <%= link_to "#" do %>
+            <%= image_tag("first-card.png") %>
+            <% end %>
+          </div>
+          <p>Take your first step in the Crypto universe, and go to the following lesson.</p>
+          <div class="d-flex justify-content-center">
+            <%= link_to 'Go to Basics!', pages_path, class: "btn-guide"%>
+          </div>
+      </div>
+    </div>
+    <div class="swiper-slide">
+    <div class="carousel-card">
+          <div class="d-flex justify-content-center">
+            <h1>Charts</h1>
+          </div>
+          <div class="logo-card2" >
+            <%= link_to "#" do %>
+            <%= image_tag("second-card.png") %>
+            <% end %>
+          </div>
+          <p>Our top ten today’s Cryptocurrency Prices by Market Cap.</p>
+          <div class="d-flex justify-content-center">
+            <%= link_to 'Go to charts!', cryptos_path, class: "btn-guide"%>
+          </div>
+      </div>
+      </div>
+    <div class="swiper-slide">
+    <div class="carousel-card">
+          <div class="d-flex justify-content-center">
+            <h1>Wallet</h1>
+          </div>
+          <div class="logo-card3" >
+            <%= link_to "#" do %>
+            <%= image_tag("third-card.png") %>
+            <% end %>
+          </div>
+          <p>Follow the simples steps to create your first wallet online.</p>
+          <div class="d-flex justify-content-center">
+            <%= link_to 'Go to wallet!', pages_path + "?tab=2", class: "btn-guide"%>
+          </div>
+      </div>
+      </div>
+  </div>
+  <!-- If we need pagination -->
+  <div class="swiper-pagination"></div>
+
+  <!-- If we need navigation buttons -->
+  <div class="swiper-button-prev"></div>
+  <div class="swiper-button-next"></div>
+
+  <!-- If we need scrollbar -->
+  <%# <div class="swiper-scrollbar"></div> %>
+</div>

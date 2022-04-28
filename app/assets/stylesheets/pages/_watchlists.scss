@@ -1,0 +1,49 @@
+.sticky-col {
+  position: -webkit-sticky;
+  position: sticky;
+  left: 0;
+}
+
+.table-responsive {
+  overflow-y: hidden;
+  overflow-x: auto;
+}
+
+.market-title {
+
+  text-align: center;
+  h1 {
+    color: rgb(216, 216, 216);
+  }
+}
+
+.table-market {
+
+  th {
+    color: rgb(29, 27, 27);
+  }
+}
+
+
+
+.container-watchlist {
+  width: 370px;
+  margin: 0 auto;
+
+}
+
+.around-table-market {
+  background-color: rgb(254, 254, 254);
+  display: flex;
+  justify-content: space-around;
+  border-radius: 16px;
+}
+
+.th .watchlists{
+  justify-content: space-between;
+}
+
+.td-watchlist {
+  border-radius: 16px 0 0 16px;
+  padding-left: 6px;
+}

@@ -1,0 +1,19 @@
+<% #calculate the current crypto balance the user have %>
+<% crypto_balance = 0 %>
+<% current_user.holdings.each do |holding| %>
+  <% crypto_balance += holding.quantity if holding.crypto.name == @crypto.name %>
+<% end %>
+
+<h1><%= @crypto.name %></h1>
+
+<h2>USD Balance</h2>
+<h2><%= current_user.amount %></h2>
+
+<h2> <%= @crypto.name %> Balance </h2>
+<h2> <%= crypto_balance %></h2>
+
+<%= simple_form_for [@crypto, @holding] do |c| %>
+<%= c.input :quantity %>
+<%= c.button :submit, 'Buy'%>
+<%= c.button :submit, 'Sell'%>
+<% end %>
